@@ -1,0 +1,13 @@
+{
+  id: @event.id,
+  title: @event.title,
+  description: @event.description,
+  location: @event.location,
+  host: @event.user_id,
+  date_time: @event.date_time,
+  attendees: @user_events.map do |user_event|
+    {
+      user_id: user_event.user_id
+    }
+  end
+}
