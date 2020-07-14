@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     delete "/images/:id" => "images#destroy"
 
     get "/conversations" => "conversations#index"
+    post "/conversations" => "conversations#create"
+    get "/conversations/:id" => "conversations#show"
   
     post "/sessions" => "sessions#create"
   end

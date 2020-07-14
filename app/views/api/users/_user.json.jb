@@ -1,0 +1,11 @@
+{
+  id: user.id,
+  first_name: user.first_name,
+  last_name: user.last_name,
+  biography: user.biography,
+  hobbies: user.hobbies,
+  email: user.email,
+  aliyah_date: user.aliyah_date,
+  country_origin: user.country_origin,
+  current_location: user.current_location
+}

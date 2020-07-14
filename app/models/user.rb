@@ -4,9 +4,14 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   has_many :created_events, source: :event
+
   has_many :images
-  has_many :messages
-  has_many :conversations
+  has_many :messages #maybe no neccessary
+
+  #this will get all convesations where user is the sender or recipient, this is the has_many association
+  def conversations
+    Conversation.where("sender_id = ?   OR recipient_id = ?", id, id)
+  end
 
   has_many :user_events
   has_many :attending_events, through: :user_event, source: :event

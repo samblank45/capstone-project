@@ -1,6 +1,2 @@
-{
-  id: @message.id,
-  user_id: @message.user_id,
-  text: @message.text,
-  conversation_id: @message.conversation_id
-}
+render partial: 'message.json.jb',
+locals: {message: @message}

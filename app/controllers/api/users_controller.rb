@@ -2,6 +2,7 @@ class Api::UsersController < ApplicationController
 
   def index
     @users = User.all
+    @image = Image.first
     render 'index.json.jb'
   end
 

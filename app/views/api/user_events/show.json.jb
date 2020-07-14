@@ -1,5 +1,2 @@
-{
-  id: @user_event.id,
-  event_id: @user_event.event_id,
-  user_id: @user_event.user_id
-}
+render partial: 'user_event.json.jb',
+locals: {user_event: @user_event}

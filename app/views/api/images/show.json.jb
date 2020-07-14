@@ -1,5 +1,2 @@
-{
-  id: @image.id,
-  url: @image.url,
-  user_id: @image.user_id
-}
+render partial: 'image.json.jb',
+locals: {image: @image}
