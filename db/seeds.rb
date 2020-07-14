@@ -1,7 +1,7 @@
 User.create!([
-  {first_name: "alex", last_name: "blank", email: "alex@gmail.com", biography: "its a dream come true", hobbies: "driving, star gazing", country_origin: "russia", current_location: "haifa", aliyah_date: "november 15th, 2020", password_digest: "password"},
-  {first_name: "sam", last_name: "blank", email: "sam@gmail.com", biography: "im lost", hobbies: "fishing", country_origin: "usa", current_location: "tel aviv", aliyah_date: "2015 april", password_digest: "password"},
-  {first_name: "john", last_name: "blank", email: "john@gmail.com", biography: "loving life", hobbies: "bike riding", country_origin: "france", current_location: "haifa", aliyah_date: "nov 16th 2017", password_digest: "password"}
+  {first_name: "alex", last_name: "blank", email: "alex@gmail.com", biography: "its a dream come true", hobbies: "driving, star gazing", country_origin: "russia", current_location: "haifa", aliyah_date: "november 15th, 2020", password: "password"},
+  {first_name: "sam", last_name: "blank", email: "sam@gmail.com", biography: "im lost", hobbies: "fishing", country_origin: "usa", current_location: "tel aviv", aliyah_date: "2015 april", password: "password"},
+  {first_name: "john", last_name: "blank", email: "john@gmail.com", biography: "loving life", hobbies: "bike riding", country_origin: "france", current_location: "haifa", aliyah_date: "nov 16th 2017", password: "password"}
 ])
 Image.create!([
   {url: "https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png", user_id: 1},

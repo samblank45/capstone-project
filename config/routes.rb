@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :api do
+
     get "/users" => "users#index"
     post "/users" => "users#create"
     get "/users/:id" => "users#show"
@@ -17,10 +18,15 @@ Rails.application.routes.draw do
     patch "/events/:id/edit" => "events#update"
     delete "/events/:id" => "events#destroy"
 
-    get "/messages/:id" => "messages#show"
     post "/messages" => "messages#create"
+    get "/messages/:id" => "messages#show"
+   
+    post "/images" => "images#create"
+    get "/images/:id" => "images#show"
+    delete "/images/:id" => "images#destroy"
 
-
+    get "/conversations" => "conversations#index"
+  
     post "/sessions" => "sessions#create"
   end
 
