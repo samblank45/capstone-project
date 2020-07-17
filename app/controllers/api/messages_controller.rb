@@ -1,8 +1,10 @@
 class Api::MessagesController < ApplicationController
 
+  before_action :authenticate_user
+
   def create
     @message = Message.new(
-      user_id: params[:user_id],
+      user_id: current_user.id,
       text: params[:text],
       conversation_id: params[:conversation_id]
     )
@@ -15,6 +17,10 @@ class Api::MessagesController < ApplicationController
 
   def show
     @message = Message.find_by(id: params[:id])
-    render 'show.json.jb'
+    if @message.user_id == current_user.id
+      render 'show.json.jb'
+    else
+      render json: {}, status: :forbidden
+    end
   end
 end

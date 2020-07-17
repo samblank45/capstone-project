@@ -24,7 +24,7 @@ class Api::ConversationsController < ApplicationController
     if @conversation.sender_id == current_user.id || @conversation.recipient_id == current_user.id 
       render 'show.json.jb'
     else
-      render json: {errors: @conversation.errors.full_messages}, status: :bad_request
+      render json: {errors: @conversation.errors.full_messages}, status: :forbidden
     end
   end
 

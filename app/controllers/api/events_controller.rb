@@ -1,5 +1,6 @@
 class Api::EventsController < ApplicationController
 
+  before_action :authenticate_user, except: [:show, :index]  
 
   def index
     @events = Event.all
@@ -11,7 +12,7 @@ class Api::EventsController < ApplicationController
       title: params[:title],
       description: params[:description],
       location: params[:location],
-      user_id: params[:user_id],
+      user_id: current_user.id,
       date_time: params[:date_time]
     )
     if @event.save
@@ -30,21 +31,28 @@ class Api::EventsController < ApplicationController
   def update
     @event = Event.find_by(id: params[:id])
     @user_events = UserEvent.all.where(event_id: @event.id)
-    @event.title = params[:title] || @event.title
-    @event.description = params[:description] || @event.description
-    @event.location = params[:location] || @event.location
-    @event.user_id = params[:user_id] || @event.user_id
-    @event.date_time = params[:date_time] || @event.date_time
-    if @event.save
-      render 'show.json.jb'
+    if @event.user_id == current_user.id
+      @event.title = params[:title] || @event.title
+      @event.description = params[:description] || @event.description
+      @event.location = params[:location] || @event.location
+      @event.date_time = params[:date_time] || @event.date_time
+      if @event.save
+        render 'show.json.jb'
+      else
+        render json: {error: @event.errors.full_messages}, status: 422
+      end
     else
-      render json: {error: @event.errors.full_messages}, status: 422
+      render json: {error: @event.errors.full_messages}, status: :forbidden
     end
   end
 
   def destroy
     @event = Event.find_by(id: params[:id])
-    @event.destroy
-    render json: {message: "event successfully destroyed"}
+    if @event.user_id == current_user.id
+      @event.destroy
+      render json: {message: "event successfully destroyed"}
+    else
+      render json: {}, status: :forbidden
+    end
   end
 end

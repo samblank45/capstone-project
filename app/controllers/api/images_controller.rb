@@ -1,9 +1,11 @@
 class Api::ImagesController < ApplicationController
 
+  before_action :authenticate_user, except: [:show]
+
   def create
     @image = Image.new(
       url: params[:url],
-      user_id: params[:user_id]
+      user_id: current_user.id
     )
     if @image.save
       render 'show.json.jb'
@@ -19,7 +21,11 @@ class Api::ImagesController < ApplicationController
 
   def destroy
     @image = Image.find_by(id:params[:id])
-    @image.destroy
-    render json: {message: "image successfully destroyed"}
+    if @image.user_id == current_user.id
+      @image.destroy
+      render json: {message: "image successfully destroyed"}
+    else
+      render json: {}, status: :forbidden
+    end
   end
 end
