@@ -1,6 +1,7 @@
 class Api::UsersController < ApplicationController
 
-  before_action :authenticate_user, except: [:create, :index, :show]
+  before_action :authenticate_user, except: [:create]
+
   def index
     @users = User.all
     @image = Image.first

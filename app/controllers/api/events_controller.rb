@@ -1,6 +1,6 @@
 class Api::EventsController < ApplicationController
 
-  before_action :authenticate_user, except: [:show, :index]  
+  before_action :authenticate_user 
 
   def index
     @events = Event.all
@@ -24,7 +24,7 @@ class Api::EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
-    @user_events = UserEvent.all.where(event_id: @event.id)
+    # @user_events = UserEvent.all.where(event_id: @event.id)
     render 'show.json.jb'
   end
 

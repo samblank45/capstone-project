@@ -1,6 +1,6 @@
 class Api::ImagesController < ApplicationController
 
-  before_action :authenticate_user, except: [:show]
+  before_action :authenticate_user
 
   def create
     @image = Image.new(

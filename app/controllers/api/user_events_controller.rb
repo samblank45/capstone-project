@@ -1,6 +1,6 @@
 class Api::UserEventsController < ApplicationController
 
-  before_action :authenticate_user, except: [:show]  
+  before_action :authenticate_user  
 
   def create
     @user_event = UserEvent.new(

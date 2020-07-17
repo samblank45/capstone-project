@@ -1,7 +1,8 @@
 event = render partial: 'event.json.jb', locals: {event: @event}
 
 event[:attendees] = @event.user_events.map do |event_user|
-  render partial: 'api/user_events/user_event', locals: {user_event: event_user}
+  render partial: '/api/user_events/user_event', locals: {user_event: event_user}
 end
+
 
 event
