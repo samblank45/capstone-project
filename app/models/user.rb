@@ -13,6 +13,10 @@ class User < ApplicationRecord
     Conversation.where("sender_id = ?   OR recipient_id = ?", id, id)
   end
 
+  def full_name 
+    "#{first_name} #{last_name}"
+  end
+
   has_many :user_events
   has_many :attending_events, through: :user_event, source: :event
 
