@@ -24,6 +24,8 @@ class Api::EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
+    @user_event = UserEvent.find_by(id: @event.user_id)
+    @user = User.find_by(id: @user_event.user_id)
     # @user_events = UserEvent.all.where(event_id: @event.id)
     render 'show.json.jb'
   end

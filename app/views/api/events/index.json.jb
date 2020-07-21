@@ -2,3 +2,4 @@
   events = render partial: 'event.json.jb', locals: {event: event}
   events
 end
+
