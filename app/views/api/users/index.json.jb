@@ -1,7 +1,13 @@
+
 @users.map do |user|
   users = render partial: 'user.json.jb', locals: {user: user}
 
-  users[:image] = render partial: 'api/images/image', locals: {image: @image}
+  users[:image] = user.images.map do |image|
+    render partial: "api/images/image", locals: {image: image}
+  end
+  
+  users[:image]
   users
+
 end
 

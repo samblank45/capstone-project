@@ -1,5 +1,8 @@
 @events.map do |event|
   events = render partial: 'event.json.jb', locals: {event: event}
+  events[:full_name] = event.user.full_name
   events
 end
+
+
 
