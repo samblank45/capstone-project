@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get "/users" => "users#index"
     post "/users" => "users#create"
     get "/users/:id" => "users#show"
-    patch "/users/:id/edit" => "users#update"
+    patch "/users/:id" => "users#update"
     delete "/users/:id" => "users#destroy"
 
     post "/user_events" => "user_events#create"
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get "/events" => "events#index"
     post "/events" => "events#create"
     get "/events/:id" => "events#show"
-    patch "/events/:id/edit" => "events#update"
+    patch "/events/:id" => "events#update"
     delete "/events/:id" => "events#destroy"
 
     post "/messages" => "messages#create"
