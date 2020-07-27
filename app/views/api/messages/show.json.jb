@@ -1,2 +1,4 @@
-render partial: 'message.json.jb',
+message = render partial: 'message.json.jb',
 locals: {message: @message}
+
+message

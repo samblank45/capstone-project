@@ -7,5 +7,7 @@
   else
     convo[:partner] = render partial: "/api/users/user", locals: {user: conversation.recipient }
   end
+  # convo[:image] = render partial: "/api/images/image", locals: {image: image}
   convo
+
 end

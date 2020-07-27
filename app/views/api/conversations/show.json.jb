@@ -11,4 +11,5 @@ conversation[:messages] = @conversation.messages.map do |message|
   render partial: "api/messages/message", locals: {message: message}
 end
 
+
 conversation
