@@ -5,5 +5,7 @@
   location: event.location,
   host_id: event.user_id,
   date_time: event.date_time,
-  image_url: event.image_url
+  image_url: event.image_url,
+  latitude: event.latitude,
+  longitude: event.longitude
 }

@@ -16,6 +16,11 @@ class Api::EventsController < ApplicationController
       date_time: params[:date_time],
       image_url: params[:image_url]
     )
+    if params[:address]
+      coordinates = Geocoder.coordinates(params[:address])
+      @event.latitude = coordinates[0]
+      @event.longitude = coordinates[1]
+    end
     if @event.save
       render 'show.json.jb'
     else
@@ -40,6 +45,10 @@ class Api::EventsController < ApplicationController
       @event.location = params[:location] || @event.location
       @event.date_time = params[:date_time] || @event.date_time
       @event.image_url = params[:image_url] || @event.image_url
+      if params[:address]
+        @event.latitude = coordinates[0]
+        @event.longitude = coordinates[1]
+      end
       if @event.save
         render 'show.json.jb'
       else

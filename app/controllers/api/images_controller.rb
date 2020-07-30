@@ -3,8 +3,10 @@ class Api::ImagesController < ApplicationController
   before_action :authenticate_user
 
   def create
+    response = Cloudinary::Uploader.upload(params[:image])
+    cloudinary_url = response["secure_url"]
     @image = Image.new(
-      url: params[:url],
+      url: cloudinary_url,
       user_id: current_user.id
     )
     if @image.save

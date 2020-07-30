@@ -40,6 +40,10 @@ class Api::UsersController < ApplicationController
       @user.aliyah_date = params[:aliyah_date] || @user.aliyah_date
       @user.country_origin = params[:country_origin] || @user.country_origin
       @user.current_location = params[:current_location] || @user.current_location
+      if params[:password]
+        @user.password = params[:password]
+        @user.password_confirmation = params[:password_confirmation]
+      end
       if @user.save
         render 'show.json.jb'
       else
