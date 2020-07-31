@@ -7,6 +7,9 @@ end
 
 user[:conversations] = @user.conversations.map do |conversation|
   conversation_user_hash = render partial: '/api/conversations/conversation', locals: {conversation: conversation}
-  
+end
+
+if current_user
+  user[:user_conversation] = current_user.conversations.include?(@user)
 end
 user

@@ -14,13 +14,9 @@ class Api::EventsController < ApplicationController
       location: params[:location],
       user_id: current_user.id,
       date_time: params[:date_time],
-      image_url: params[:image_url]
+      image_url: params[:image_url],
+      address: params[:address]
     )
-    if params[:address]
-      coordinates = Geocoder.coordinates(params[:address])
-      @event.latitude = coordinates[0]
-      @event.longitude = coordinates[1]
-    end
     if @event.save
       render 'show.json.jb'
     else
@@ -31,7 +27,7 @@ class Api::EventsController < ApplicationController
   def show
     @event = Event.find_by(id: params[:id])
     @user_event = UserEvent.find_by(id: @event.user_id)
-    @user = User.find_by(id: @user_event.user_id)
+    # @user = User.find_by(id: @user_event.user_id)
     # @user_events = UserEvent.all.where(event_id: @event.id)
     render 'show.json.jb'
   end
@@ -45,10 +41,7 @@ class Api::EventsController < ApplicationController
       @event.location = params[:location] || @event.location
       @event.date_time = params[:date_time] || @event.date_time
       @event.image_url = params[:image_url] || @event.image_url
-      if params[:address]
-        @event.latitude = coordinates[0]
-        @event.longitude = coordinates[1]
-      end
+      @event.address = params[:address] || @event.address
       if @event.save
         render 'show.json.jb'
       else

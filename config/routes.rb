@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
     post "/user_events" => "user_events#create"
     get "/user_events/:id" => "user_events#show"
-    delete "/user_events/:id" => "user_events#destroy"
+    delete "/user_events/:event_id" => "user_events#destroy"
 
     get "/events" => "events#index"
     post "/events" => "events#create"

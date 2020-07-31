@@ -6,7 +6,6 @@
     render partial: "api/images/image", locals: {image: image}
   end
   
-  users[:image]
   users
 
 end

@@ -1,5 +1,9 @@
 event = render partial: 'event.json.jb', locals: {event: @event}
 
+if current_user
+  event[:attending] = current_user.attending_events.include?(@event)
+end
+
 event[:attendees] = @event.user_events.map do |event_user|
   event_user_hash = render partial: '/api/user_events/user_event', locals: {user_event: event_user}
   event_user_hash[:full_name] = event_user.user.full_name

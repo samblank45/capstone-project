@@ -18,6 +18,6 @@ class User < ApplicationRecord
   end
 
   has_many :user_events
-  has_many :attending_events, through: :user_event, source: :event
+  has_many :attending_events, through: :user_events, source: :event
 
 end
