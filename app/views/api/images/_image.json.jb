@@ -1,5 +1,6 @@
 {
   id: image.id,
   url: image.url,
-  user_id: image.user_id
+  user_id: image.user_id,
+  main_image: image.main_image
 }

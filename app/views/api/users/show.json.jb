@@ -10,6 +10,6 @@ user[:conversations] = @user.conversations.map do |conversation|
 end
 
 if current_user
-  user[:user_conversation] = current_user.conversations.include?(@user)
+  user[:paired] = current_user.conversations.include?(@user)
 end
 user
