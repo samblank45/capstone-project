@@ -2,6 +2,12 @@ class Api::MessagesController < ApplicationController
 
   before_action :authenticate_user
 
+
+  def index
+    @messages = Messages.all.order(created_at: :desc)
+    render 'index.json.jb'
+  end
+
   def create
     @conversation = Conversation.find_by(id: params[:conversation_id])
     if @conversation.sender_id == current_user.id || @conversation.recipient_id == current_user.id
@@ -18,6 +24,13 @@ class Api::MessagesController < ApplicationController
     else 
       render json: {error: @message.errors.full_messages}, status: :forbidden
     end
+
+    ActionCable.server.broadcast "messages_channel", {
+      id: @message.id,
+      name: @message.user.full_name,
+      text: @message.text,
+      created_at: @message.created_at
+    }
   end
 
   def show

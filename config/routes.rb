@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
     post "/messages" => "messages#create"
     get "/messages/:id" => "messages#show"
+    get "/messages" => "messages#index"
    
     post "/images" => "images#create"
     get "/images/:id" => "images#show"

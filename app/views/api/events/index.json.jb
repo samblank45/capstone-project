@@ -5,6 +5,7 @@
   events[:attendees] = event.user_events.map do |event_user|
     event_user_hash = render partial: '/api/user_events/user_event', locals: {user_event: event_user}
     event_user_hash[:full_name] = event_user.user.full_name
+    event_user_hash[:image] = event_user.user.images[0].url
     event_user_hash
   end
 

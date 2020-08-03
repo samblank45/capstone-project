@@ -2,7 +2,9 @@ user = render partial: 'user.json.jb', locals: {user: @user}
 
 
 user[:images] = @user.images.map do |image|
-  render partial: "api/images/image", locals: {image: image}
+  images = render partial: "api/images/image", locals: {image: image}
+  images
+  # images[:main_picture] = image.main_image
 end
 
 user[:conversations] = @user.conversations.map do |conversation|
