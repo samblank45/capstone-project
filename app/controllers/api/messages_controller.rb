@@ -3,11 +3,6 @@ class Api::MessagesController < ApplicationController
   before_action :authenticate_user
 
 
-  def index
-    @messages = Messages.all.order(created_at: :desc)
-    render 'index.json.jb'
-  end
-
   def create
     @conversation = Conversation.find_by(id: params[:conversation_id])
     if @conversation.sender_id == current_user.id || @conversation.recipient_id == current_user.id

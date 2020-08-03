@@ -9,6 +9,9 @@ end
 
 user[:conversations] = @user.conversations.map do |conversation|
   conversation_user_hash = render partial: '/api/conversations/conversation', locals: {conversation: conversation}
+  # if current_user.id == conversation.sender_id || current_user.id == conversation.recipient_id
+  #   conversation_user_hash[:paired] = conversation
+  # end
 end
 
 if current_user
