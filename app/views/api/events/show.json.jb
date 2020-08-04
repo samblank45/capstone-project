@@ -12,5 +12,6 @@ event[:attendees] = @event.user_events.map do |event_user|
 end
 event[:host] = @event.user.full_name
 event[:host_picture] = @event.user.images[0].url
+event[:host_bio] = @event.user.biography
 
 event
