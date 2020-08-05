@@ -2,7 +2,6 @@ class Api::MessagesController < ApplicationController
 
   before_action :authenticate_user
 
-
   def create
     @conversation = Conversation.find_by(id: params[:conversation_id])
     if @conversation.sender_id == current_user.id || @conversation.recipient_id == current_user.id
@@ -24,7 +23,8 @@ class Api::MessagesController < ApplicationController
       id: @message.id,
       name: @message.user.full_name,
       text: @message.text,
-      created_at: @message.created_at
+      created_at: @message.created_at,
+      user_id: @message.user_id
     }
   end
 

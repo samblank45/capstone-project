@@ -5,10 +5,13 @@
   if current_user.id == conversation.recipient.id
     convo[:partner] = render partial: "/api/users/user", locals: {user: conversation.sender }
     convo[:partner_image] = conversation.sender.images[0].url
+ 
   else
     convo[:partner] = render partial: "/api/users/user", locals: {user: conversation.recipient }
     convo[:partner_image] = conversation.recipient.images[0].url
+ 
   end
+
   convo
 
 end
