@@ -7,10 +7,10 @@ User.create!([
   {first_name: "Avi", last_name: "Berne", email: "avi@gmail.com", biography: "I'm addicted to chocolate, something which my family pointed out when he I 18. The problem intensified in 2015. I've lost six jobs as a result of my addiction, specifically: gym assistant, tea maker, health centre receptionist, kitchen assistant, cleaner at a studio and extra.", hobbies: "Civil war history, Juggling, Animal Husbandry, beach volleyball, Go kart racing", country_origin: "Canada", current_location: "Netanya", aliyah_date: "August 5th 2018", password: "password"},
   {first_name: "Daniel", last_name: "Levene", email: "daniel@gmail.com", biography: "I am Welsh. I finished school and then left academia. I have a severe phobia of buttons", hobbies: "Tennis, Pilates, painting, football", country_origin: "U.K.", current_location: "Eilat", aliyah_date: "August 29th 2019", password: "password"},
   {first_name: "Adam", last_name: "Godman", email: "adam@gmail.com", biography: "I am 24-year-old junior manager who enjoys watching sports, painting and sailing. I'm kind and friendly, and looking for a new adventure", country_origin: "Germany", hobbies: "Art collecting, storm chasing, sailing, bowling, beekeeping, fitness", current_location: "Sderot", aliyah_date: "April 1st 2020", password: "password"},
-  {first_name: "Kenny", last_name: "Morgan", email: "adam@gmail.com", biography: "I recently moved from the UK looking for a better life. It's been a struggle adjusting to life in Israel and hope to find others like me.", hobbies: "Frisbee, Computers, video games, golf, sailing",country_origin: "UK", current_location: "Tel Aviv", aliyah_date: "May 23rd 2020", password: "password"},
+  {first_name: "Kenny", last_name: "Morgan", email: "kenny@gmail.com", biography: "I recently moved from the UK looking for a better life. It's been a struggle adjusting to life in Israel and hope to find others like me.", hobbies: "Frisbee, Computers, video games, golf, sailing",country_origin: "UK", current_location: "Tel Aviv", aliyah_date: "May 23rd 2020", password: "password"},
   {first_name: "Gary", last_name: "Paley", email: "gary@gmail.com", biography: "New immigrant in Israel looking for others in my situation. It's been difficult adjusting to this new life. What a balagan!", hobbies: "star gazing, tennis, volleyball, fitness, instragram", country_origin: "United States", current_location: "Tel Aviv", aliyah_date: "May 15th 2020", password: "password"},
   {first_name: "Oren", last_name: "Hartov", email: "oren@gmail.com", biography: "Just made Aliyah and looking to join the army. Anyone else out there in a similar situation?", hobbies: "finger painting, exercise, crossfit, soccer, football",country_origin: "United States", current_location: "Haifa", aliyah_date: "June 1st 2020", password: "password"},
-  {first_name: "Oren", last_name: "Hartov", email: "oren@gmail.com", biography: "Just made Aliyah and looking to join the army. Anyone else out there in a similar situation?", hobbies: "Football, hiking, long walks, swimming",country_origin: "United States", current_location: "Haifa", aliyah_date: "June 1st 2020", password: "password"},
+  {first_name: "Michael", last_name: "Stansky", email: "michael@gmail.com", biography: "Looking for a better life after having bad luck in my country. I'm a sweet and fun loving guy that just wants to live life. Message me if you want to meet up.", hobbies: "Football, fitness, Ju-Jitsu, Bird watching, food",country_origin: "United States", current_location: "Haifa", aliyah_date: "June 1st 2020", password: "password"},
   {first_name: "Justin", last_name: "Wells", email: "justin@gmail.com", biography: "I recently moved to Israel. I'm 28 years old and I have a PHD in physchology. This is an exciting new adventure and I hope I can find others.", hobbies: "Swimming, football, golf, fitness, instagram",country_origin: "United States", current_location: "Jerusalem", aliyah_date: "June 30th 2020", password: "password"},
   {first_name: "Mario", last_name: "Enrique", email: "mario@gmail.com", biography: "recently made aliyah and I'm overwhelmed by the beauty of Israel and it's people. I really hope I can find others like me. Currently working in Ashdod in the medical establishment", hobbies: "religion, movies, tv shows, netflix, fitness, crossfit, cars",country_origin: "Mexico", current_location: "Jerusalem", aliyah_date: "October 21st, 2017", password: "password"},
   {first_name: "Dan", last_name: "Spigle", email: "dan@gmail.com", biography: "Loving life here in Israel. Made aliyah recently and looking for new friends. Enjoying myself in Raanana absorption center", hobbies: "cars, fitness, video games, movies, star wars",country_origin: "United States", current_location: "raanana", aliyah_date: "July 25th 2020", password: "password"}
@@ -41,16 +41,16 @@ Event.create!([
 
 ])
 Conversation.create!([
-  {sender_id: 1, recepient_id: 3},
-  {sender_id: 2, recepient_id: 1},
-  {sender_id: 3, recepient_id: 10},
-  {sender_id: 4, recepient_id: 11},
-  {sender_id: 5, recepient_id: 12},
-  {sender_id: 6, recepient_id: 13},
-  {sender_id: 7, recepient_id: 14},
-  {sender_id: 8, recepient_id: 15},
-  {sender_id: 9, recepient_id: 2},
-  {sender_id: 10, recepient_id: 1}
+  {sender_id: 1, recipient_id: 3},
+  {sender_id: 2, recipient_id: 1},
+  {sender_id: 3, recipient_id: 10},
+  {sender_id: 4, recipient_id: 11},
+  {sender_id: 5, recipient_id: 12},
+  {sender_id: 6, recipient_id: 13},
+  {sender_id: 7, recipient_id: 14},
+  {sender_id: 8, recipient_id: 15},
+  {sender_id: 9, recipient_id: 2},
+  {sender_id: 10, recipient_id: 1}
 ])
 Message.create!([
   {user_id: 1, text: "how are you?", conversation_id: 2},
