@@ -40,30 +40,6 @@ Event.create!([
   {title: "Chess", description: "Any avid chess players? I have a studio with a bunch of chess boards. Would love to maybe start a tournament.", location: "Raanana, 100 ahuza street", user_id: 3, date_time: "2020-01-06 09:30:00", image_url: "https://www.aoe.com/fileadmin/AOE.com/images/main_navigation/blog/Stock_Photos/miscellaneous/Fotolia_94900081_Chess_Pieces_930_590_70.jpg", address: "Raanana, 100 ahuza street"}
 
 ])
-Conversation.create!([
-  {sender_id: 1, recipient_id: 3},
-  {sender_id: 2, recipient_id: 1},
-  {sender_id: 3, recipient_id: 10},
-  {sender_id: 4, recipient_id: 11},
-  {sender_id: 5, recipient_id: 12},
-  {sender_id: 6, recipient_id: 13},
-  {sender_id: 7, recipient_id: 14},
-  {sender_id: 8, recipient_id: 15},
-  {sender_id: 9, recipient_id: 2},
-  {sender_id: 10, recipient_id: 1}
-])
-Message.create!([
-  {user_id: 1, text: "how are you?", conversation_id: 2},
-  {user_id: 1, text: "where are you?", conversation_id: 1},
-  {user_id: 3, text: "Hi there", conversation_id: 3},
-  {user_id: 4, text: "Nice to meet you", conversation_id: 4},
-  {user_id: 6, text: "Hello", conversation_id: 5},
-  {user_id: 7, text: "How are you?", conversation_id: 3},
-  {user_id: 8, text: "Hi", conversation_id: 3},
-  {user_id: 9, text: "Hello", conversation_id: 3},
-  {user_id: 10, text: "Hey do you want to meet up?", conversation_id: 3},
-  {user_id: 12, text: "Hey whats up?", conversation_id: 3}
-])
 UserEvent.create!([
   {event_id: 1, user_id: 1},
   {event_id: 2, user_id: 3},
