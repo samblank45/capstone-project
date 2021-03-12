@@ -4,6 +4,7 @@ class Api::ConversationsController < ApplicationController
 
   def index
     @conversations = current_user.conversations
+    #test
     render 'index.json.jb'
   end
 
